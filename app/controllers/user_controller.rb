@@ -26,9 +26,9 @@ class UserController < ApplicationController
 
     post "/users/login" do
         @user = User.find_by(username:params[:user][:username])
-        if @user && @user.authenticate(params[:password])
+        if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
-            erb:"/attractions"
+            erb:"/attractions/index"
         else
          redirect to("/users/failure")
         end

@@ -11,7 +11,10 @@
       <span id='logo'>Lets Go To...</span> 
      <% if Helpers.is_logged_in?(session) %>
         <span><%=Helpers.current_user(session).username %> is logged in</span>
-        <a href="/users/logout">Logout</a>
+        <div class="test">Hello</div>
+        <form method="POST" action="/users/logout" class="inline" >
+            <input type="submit" value="Log Out">
+        </form>
       <% else %>
       <span id="authentication"><a href="/users/login">Login</a> | <a href="/users/signup">Sign up</a> 
      <% end %>
