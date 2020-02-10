@@ -1,3 +1,11 @@
 <h1 class="centre"> All Attractions </h1>
-<h3 class="centre"> Add </h3>
-<button action="/attactions">See Attractions</button>
+<h3 class="centre"> <a href="/attractions/new"> Add Attraction </a></h3>
+<% if @attractions.empty? %>
+    <h4>Oh dear, there are no attractions, better add one!</h4>
+<% else %>
+    <% @attractions.each do |attraction| %>
+        <div>
+            <%= attraction.name %>
+        </div>
+    <% end %>
+ <% end %>

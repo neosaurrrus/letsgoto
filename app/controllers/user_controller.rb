@@ -12,7 +12,6 @@ class UserController < ApplicationController
     end
 
     post "/users/signup" do
-        binding.pry
         if User.find_by(username:params[:user][:username]) 
             redirect to("/users/signup")
         elsif params[:user][:password] != params[:password_confirm]

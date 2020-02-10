@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_02_10_071509) do
 
-  create_table "attactions", force: :cascade do |t|
+  create_table "attractions", force: :cascade do |t|
     t.string "name"
     t.string "location"
     t.string "comments"
