@@ -1,13 +1,7 @@
-/* .inline {
+.inline {
     display: inline;
-    color: green;
-    background: blue;
-} */
-
-.test {
-    background: red;
 }
-/* 
+
 body {
     color: lightgray;
     background: slategray;
@@ -16,4 +10,3 @@ body {
     padding-left: 10%;
     padding-right: 10%;
 }
- */
