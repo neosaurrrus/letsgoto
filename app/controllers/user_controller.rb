@@ -12,10 +12,10 @@ class UserController < ApplicationController
     end
 
     post "/users/signup" do
-   
+        binding.pry
         if User.find_by(username:params[:user][:username]) 
             redirect to("/users/signup")
-        elsif params[user[:password]] != params[user[:password_confirm]]
+        elsif params[:user][:password] != params[:password_confirm]
             redirect to("/users/signup")
         else
           @user = User.create(params[:user])
