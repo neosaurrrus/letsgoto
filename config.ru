@@ -4,6 +4,6 @@ if ActiveRecord::Base.connection.migration_context.needs_migration?
     raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.'
   end
 use Rack::MethodOverride
-# use UserController
-# use AttractionController
+use UserController
+use AttractionController
 run ApplicationController
