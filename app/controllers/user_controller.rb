@@ -13,7 +13,9 @@ class UserController < ApplicationController
 
     post "/users/signup" do
    
-        if User.find_by(username:params[:user][:username])
+        if User.find_by(username:params[:user][:username]) 
+            redirect to("/users/signup")
+        elsif params[user[:password]] != params[user[:password_confirm]]
             redirect to("/users/signup")
         else
           @user = User.create(params[:user])
