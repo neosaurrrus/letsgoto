@@ -9,8 +9,15 @@
     <div class="container">
     <nav>
       <span id='logo'>Lets Go To...</span> 
-    
-      <span id="authentication"><a href="/users/login">Login</a> | <a href="/users/signup">Sign up</a> | <a href="/users/logout">Logout</a>
+     <% if Helpers.is_logged_in?(session) %>
+        <span><%=Helpers.current_user(session).username %> is logged in</span>
+        <a href="/users/logout">Logout</a>
+      <% else %>
+      <span id="authentication"><a href="/users/login">Login</a> | <a href="/users/signup">Sign up</a> 
+     <% end %>
+   
+   
+   
     </nav>
 
     </div>
