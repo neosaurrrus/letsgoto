@@ -10,3 +10,14 @@ body {
     padding-left: 10%;
     padding-right: 10%;
 }
+
+.flash-failure {
+    color: red;
+    background: rgba(50,50,50, 0.5);
+    text-align: center;
+}
+.flash-success {
+    color: green;
+    background: rgba(50,50,50, 0.5);
+    text-align: center;
+}

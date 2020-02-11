@@ -1,4 +1,6 @@
+
 class AttractionController < ApplicationController
+  
 
     get "/attractions" do
         @attractions = Attraction.all
@@ -11,6 +13,7 @@ class AttractionController < ApplicationController
 
     post "/attractions" do
         if params[:attraction][:comments] == ""
+            flash[:notice]="Please provide a comment!"
             redirect to("/attractions/new")
         else 
             @attraction = Attraction.create(params[:attraction])
@@ -30,7 +33,8 @@ class AttractionController < ApplicationController
         if @attraction.user == Helpers.current_user(session)
            erb:"/attractions/edit"
         else
-            redirect to("/users/signup")
+            flash[:edit_notice]="You need to log in to edit attractions"
+            redirect to("/users/login")
         end
     end
 

@@ -1,3 +1,7 @@
+<% if flash.has?(:logon_notice)%>
+  <h4 class="flash-success"><%= flash[:logon_notice] %></h4>
+<% end %>
+
 <h1 class="centre"> All Attractions </h1>
 <h4 class="centre"> <a href="/attractions/new"> Add Attraction </a></h4>
 <% if @attractions.empty? %>

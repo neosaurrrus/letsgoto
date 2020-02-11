@@ -27,7 +27,9 @@ class UserController < ApplicationController
         @user = User.find_by(username:params[:user][:username])
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
-            erb:"/attractions/index"
+            @attractions = Attraction.all
+            flash[:login_notice]= "Welcome #{@user.username}!"
+            redirect to("/attractions")
         else
          redirect to("/users/failure")
         end
@@ -35,12 +37,14 @@ class UserController < ApplicationController
 
     post'/users/logout' do
         session.clear
+        flash[:logout_notice]= "Successfully Logged Out"
         redirect '/'
     end
     
 
     get "/users/failure" do
-        erb:"/users/login"
+        flash[:login_notice]= "Invalid Username or Password"
+        redirect to("/users/login")
     end
 
 end

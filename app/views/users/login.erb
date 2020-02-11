@@ -1,4 +1,9 @@
 <h1>Log in Page</h1>
+<% if flash.has?(:edit_notice)%>
+  <h4 class="flash-failure"><%= flash[:edit_notice] %></h4>
+<% elsif flash.has?(:login_notice)%>
+    <h4 class="flash-failure"><%= flash[:login_notice] %></h4>
+<% end %>
 
 <form action="/users/login" method="POST">
     <label for="username">Username: </label>
