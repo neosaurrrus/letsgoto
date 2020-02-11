@@ -34,7 +34,7 @@ class AttractionController < ApplicationController
     patch "/attractions/:id" do
         @attraction = Attraction.find(params[:id])
         @attraction.update(params[:attraction])
-        redirect to("/attractions/show")
+        redirect to("/attractions/#{@attraction.id}")
     end
 
 
