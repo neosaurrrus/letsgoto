@@ -1,0 +1,26 @@
+<h2>Edit <%= @attraction.name %></h2>
+<% if Helpers.is_logged_in?(session) %>
+<%= @error %>
+  <form action='/attractions' method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+
+    <label for="attraction_name">Name</label><br>
+    <input type="text" name="attraction[name]" id="attraction_name" value="<%= @attraction.name%>"><br>
+   
+    <label for="attraction_name">Location</label><br>
+    <input type="text" name="attraction[location]" value="<%= @attraction.location%>"id="attraction_location"><br>
+  
+    <label for="attraction_comments">Your comments: </label><br>
+    <textarea name="attraction[comments]" id="attraction_comments"> <%= @attraction.comments%></textarea><br>
+   
+    <label for="attraction_visited">Have you visted it before? </label><br>
+    <input type="checkbox" name="attraction[visited]" <%= 'checked' if @attraction.visited %> id="attraction_visited">Yes</input> <br>
+   
+     <br>
+    <input type="submit" value="Add Attraction">
+  </form>
+  <% else %>
+      <h1> You Must Be Logged in to Edit Attractions</h1>
+  <% end %>
+
+
