@@ -28,21 +28,35 @@ class AttractionController < ApplicationController
 
     get "/attractions/:id/edit" do
         @attraction = Attraction.find(params[:id])
-        erb:"/attractions/edit"
+        if @attraction.user == Helpers.current_user(session)
+           erb:"/attractions/edit"
+        else
+            redirect to("/users/signup")
     end
 
     patch "/attractions/:id" do
         @attraction = Attraction.find(params[:id])
-     
-        if !params[:attraction][:visited]
-            params[:attraction][:visited] = false
+        
+        if @attraction.user == Helpers.current_user(session)
+            if !params[:attraction][:visited]
+                params[:attraction][:visited] = false
+            end
+            
+            @attraction.update(params[:attraction])
         end
-        binding.pry
-        @attraction.update(params[:attraction])
-        redirect to("/attractions/#{@attraction.id}")
+            redirect to("/attractions/#{@attraction.id}")
+        end
     end
 
-
+    delete "/attractions/:id" do
+        @attraction = Attraction.find(params[:id])
+        if @attraction.user == Helpers.current_user(session)
+            @attraction.delete
+            redirect to("/attractions")
+        else
+            redirect to ("/attractions/#{@attraction.id}"
+        end
+    end
 
 
 end

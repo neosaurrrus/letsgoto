@@ -18,6 +18,9 @@
    
      <br>
     <input type="submit" value="Edit Attraction">
+    <form action='/attractions/<%= @attraction.id %>' method="DELETE">
+      <button type="submit">Delete Attraction</button>
+    </form>
   </form>
   <% else %>
       <h1> You Must Be Logged in to Edit Attractions</h1>
