@@ -33,6 +33,11 @@ class AttractionController < ApplicationController
 
     patch "/attractions/:id" do
         @attraction = Attraction.find(params[:id])
+     
+        if !params[:attraction][:visited]
+            params[:attraction][:visited] = false
+        end
+        binding.pry
         @attraction.update(params[:attraction])
         redirect to("/attractions/#{@attraction.id}")
     end
