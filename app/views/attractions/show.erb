@@ -7,8 +7,16 @@
     <% else %>
         <p> <%= @attraction.user.username %> <em>wants to go</em> there </p>
     <% end %>
-    <p> <%= @attraction.comments %> <p>
+    <p> <%= @attraction.comments %> <p> <br>
+
+
 <h4 class="centre"> <a href="/attractions/<%= @attraction.id %>/edit"> Edit Attraction </a></h4>
+<form method="post"  class="inline" action="/attractions/<%=@attraction.id%>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Attraction">
+</form>``
+
+
 
 </div>
 

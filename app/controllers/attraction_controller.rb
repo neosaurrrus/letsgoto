@@ -11,7 +11,6 @@ class AttractionController < ApplicationController
     end
 
     post "/attractions" do
-        binding.pry
         if params[:attraction][:comments] == ""
             redirect to("/attractions/new")
         else 
