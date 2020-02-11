@@ -1,7 +1,6 @@
 class AttractionController < ApplicationController
 
     get "/attractions" do
-    
         @attractions = Attraction.all
         erb:"/attractions/index"
     end
@@ -32,6 +31,7 @@ class AttractionController < ApplicationController
            erb:"/attractions/edit"
         else
             redirect to("/users/signup")
+        end
     end
 
     patch "/attractions/:id" do
@@ -41,11 +41,9 @@ class AttractionController < ApplicationController
             if !params[:attraction][:visited]
                 params[:attraction][:visited] = false
             end
-            
             @attraction.update(params[:attraction])
         end
-            redirect to("/attractions/#{@attraction.id}")
-        end
+        redirect to("/attractions/#{@attraction.id}")
     end
 
     delete "/attractions/:id" do
@@ -54,7 +52,7 @@ class AttractionController < ApplicationController
             @attraction.delete
             redirect to("/attractions")
         else
-            redirect to ("/attractions/#{@attraction.id}"
+            redirect to ("/attractions/#{@attraction.id}")
         end
     end
 
