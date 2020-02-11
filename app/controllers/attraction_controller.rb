@@ -17,10 +17,17 @@ class AttractionController < ApplicationController
             @attraction = Attraction.create(params)
             @attraction.user = Helpers.current_user(session)
             @attraction.save
-            redirect to("/attractions/#{@attraction.id")
+            redirect to("/attractions/#{@attraction.id}")
         end
-
     end
+
+    get "/attractions/:id" do
+        @attraction = Attraction.find(params[:id])
+        erb:"/attractions/show"
+    end
+
+    
+
 
 
 end

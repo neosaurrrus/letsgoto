@@ -1,0 +1,15 @@
+<h1 class="centre"> All Attractions </h1>
+<h3 class="centre"> <a href="/attractions/<%= @attraction.id %>/edit"> Edit Attraction </a></h3>
+
+<div>
+    <h3> <%= @attraction.name %><h3>
+    <h4> <%= @attraction.location %> <h4>
+    <% if @attraction.visited %>
+        <p> <%= @attraction.user %> has been there </p>
+    <% else %>
+        <p> <%= @attraction.user %> wants to go there </p>
+    <% end %>
+    <p> <%= @attraction.comments %> <p>
+</div>
+
+ 

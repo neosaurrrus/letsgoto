@@ -6,6 +6,13 @@
     <% @attractions.each do |attraction| %>
         <div>
             <%= attraction.name %>
+             <p> <%= attraction.location %> <p>
+            <% if attraction.visited %>
+                <p> <%= attraction.user %> has been there </p>
+            <% else %>
+                <p> <%= attraction.user %> wants to go there </p>
+            <% end %>
+            <p> <%= attraction.comments %> <p>
         </div>
     <% end %>
  <% end %>
