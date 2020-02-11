@@ -4,12 +4,14 @@
   <form action='/attractions' method="POST">
     <label for="attraction_name">Name</label><br>
     <input type="text" name="attraction[name]" id="attraction_name"><br>
+    <label for="attraction_name">Location</label><br>
+    <input type="text" name="attraction[location]" id="attraction_location"><br>
     <label for="attraction_comments">Your comments: </label><br>
     <textarea name="attraction[comments]" id="attraction_comments"></textarea><br>
     <label for="attraction_visited">Have you visted it before? </label><br>
     <input type="checkbox" name="attraction[visited]" id="attraction_visited">Yes</input> <br>
      <br>
-    <input typ
+    <input type="submit" value="Add Attraction">
   </form>
   <% else %>
       <h1> You Must Be Logged in to Add Attractions</h1>

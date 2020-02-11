@@ -11,10 +11,11 @@ class AttractionController < ApplicationController
     end
 
     post "/attractions" do
-        if params[:comments].length == 0
-            redirect to("/attactions/new")
+        binding.pry
+        if params[:attraction][:comments] == ""
+            redirect to("/attractions/new")
         else 
-            @attraction = Attraction.create(params)
+            @attraction = Attraction.create(params[:attraction])
             @attraction.user = Helpers.current_user(session)
             @attraction.save
             redirect to("/attractions/#{@attraction.id}")
