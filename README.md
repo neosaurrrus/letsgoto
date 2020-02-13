@@ -6,15 +6,13 @@ Built with Sinatra and ActiveRecord.
 # Installation
 Clone down this repo.
 Run bundler install to grab all the required dependancies.
-Run 
+Run Rake:db migrate to build the relevent databases
+Run Shotgun to run it locally.
 
 # Usage
-The gem will prompt you with a list of drivers. Simply type the corresponding number to learn more about the driver of your choice.
-
-# Development
-After checking out the repo, run bin/setup to install dependencies. You can also run bin/console for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run bundle exec rake install. To release a new version, update the version number in version.rb, and then run bundle exec rake release, which will create a git tag for the version, push git commits and tags, and push the .gem file to rubygems.org.
+The App will allow you to signup as a new user, login and logout. 
+Once you are signed in, you can create a new Attraction, specifying its name, location, comments, and whever you have been there before.
+All users can view all attractions but you need to have created an attraction to then be able to edit or delete it.
 
 # Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/'neosaurrrus'/letsgoto. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
