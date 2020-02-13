@@ -10,7 +10,7 @@
     <nav>
       <span id='logo'>Lets Go To...</span> 
      <% if Helpers.is_logged_in?(session) %>
-        <%# <span><%=Helpers.current_user(session).username %> is logged in</span> %>
+        <span><%=Helpers.current_user(session).username%> is logged in</span> 
         <form method="POST" action="/users/logout" class="inline" >
             <input type="submit" value="Log Out">
         </form>

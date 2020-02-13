@@ -10,7 +10,11 @@
     <p> <%= @attraction.comments %> <p> <br>
 
 
-<h4 class="centre"> <a href="/attractions/<%= @attraction.id %>/edit"> Edit Attraction </a></h4>
+TEST EDIT HIDING@
+<% if Helpers.current_user(session) %>
+<h4 class="centre"<%> <a href="/attractions/<%= @attraction.id %>/edit"> Edit Attraction </a></h4>
+<% end >
+
 <form method="post"  class="inline" action="/attractions/<%=@attraction.id%>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Attraction">
