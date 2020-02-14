@@ -9,7 +9,6 @@ class ApplicationController < Sinatra::Base
       end
 
     require "rack-flash"
-    
     use Rack::Flash
 
   get '/' do
