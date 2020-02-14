@@ -22,6 +22,8 @@ class UserController < ApplicationController
             flash[:sign_in_notice]= "Passwords do not match!"
             redirect to("/users/signup")
         else
+          params[:user][:username] = params[:user][:username].strip
+          params[:user][:password] = params[:user][:password].strip
           @user = User.create(params[:user])
           session[:user_id] = @user.id
           redirect to("/attractions")

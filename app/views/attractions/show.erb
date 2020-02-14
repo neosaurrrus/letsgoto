@@ -1,5 +1,4 @@
 <h1> <%= @attraction.name %></h1>
-
 <div>
     <h3> <%= @attraction.location %> </h3>
     <% if @attraction.visited %>
@@ -9,11 +8,9 @@
     <% end %>
     <p> <%= @attraction.comments %> <p> <br>
 
-
-
 <% if Helpers.current_user(session).username == @attraction.user.username %>
 <hr>
-<h4 class="centre"><a href="/attractions/<%= @attraction.id %>/edit"> Edit Attraction </a></h4>
+<h4 class="centre" class="inline"><a href="/attractions/<%= @attraction.id %>/edit"> Edit Attraction </a></h4>
 <form method="post"  class="inline" action="/attractions/<%=@attraction.id%>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Attraction">
@@ -21,10 +18,8 @@
 
 <% end %>
 
-
 <hr>
 <a href="/attractions">All Attractions</a>
-
 </div>
 
  

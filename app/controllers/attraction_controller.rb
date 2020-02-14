@@ -40,10 +40,9 @@ class AttractionController < ApplicationController
 
     patch "/attractions/:id" do
         @attraction = Attraction.find(params[:id])
-        
         if @attraction.user == Helpers.current_user(session)
-            if !params[:attraction][:visited]
-                params[:attraction][:visited] = false
+            if !params[:attraction][:visited] # If the visited checkbox is unchecked it wont appear in params...
+                params[:attraction][:visited] = false # ...so I force it to appear
             end
             @attraction.update(params[:attraction])
         end

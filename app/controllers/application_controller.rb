@@ -8,11 +8,9 @@ class ApplicationController < Sinatra::Base
         set :session_secret, "superduperhypersecret"
       end
 
-      require "rack-flash"
-enable :sessions
-use Rack::Flash
-
-      
+    require "rack-flash"
+    enable :sessions
+    use Rack::Flash
 
   get '/' do
     erb :index

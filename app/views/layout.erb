@@ -1,29 +1,24 @@
 <!doctype html>
 <html>
   <head>
-    <title>Lets go to!</title>
+    <title>Lets Go To!</title>
    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
   </head>
   <body>
 
     <div class="container">
     <nav>
-      <span id='logo'>Lets Go To...</span> 
+      <span id='logo'><a href="/">Home</a></span> 
      <% if Helpers.is_logged_in?(session) %>
         <span><%=Helpers.current_user(session).username%> is logged in</span> 
         <form method="POST" action="/users/logout" class="inline" >
             <input type="submit" value="Log Out">
         </form>
       <% else %>
-      <span id="authentication"><a href="/users/login">Login</a> | <a href="/users/signup">Sign up</a> 
+      <span id="authentication"><a href="/users/login">Login</a> | <a href="/users/signup">Sign up</a> </span>
      <% end %>
-   
-   
-   
     </nav>
 
     </div>
       <%= yield %>
-      
-
   </body>
