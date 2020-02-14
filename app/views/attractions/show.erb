@@ -8,7 +8,7 @@
     <% end %>
     <p> <%= @attraction.comments %> <p> <br>
 
-<% if Helpers.current_user(session).username == @attraction.user.username %>
+<% if Helpers.is_logged_in?(session) && Helpers.current_user(session).username == @attraction.user.username %>
 <hr>
 <h4 class="centre" class="inline"><a href="/attractions/<%= @attraction.id %>/edit"> Edit Attraction </a></h4>
 <form method="post"  class="inline" action="/attractions/<%=@attraction.id%>">

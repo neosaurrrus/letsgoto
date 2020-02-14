@@ -9,7 +9,7 @@ class ApplicationController < Sinatra::Base
       end
 
     require "rack-flash"
-    enable :sessions
+    
     use Rack::Flash
 
   get '/' do
