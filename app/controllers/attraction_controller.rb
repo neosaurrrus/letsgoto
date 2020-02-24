@@ -16,8 +16,8 @@ class AttractionController < ApplicationController
             flash[:notice]="Please provide a comment!"
             redirect to("/attractions/new")
         else 
-            @attraction = Attraction.create(params[:attraction])
-            @attraction.user = Helpers.current_user(session)
+            @attraction = Helpers.current_user(session).attractions.build(params[:attraction])
+            # @attraction.user = Helpers.current_user(session)
             @attraction.save
             redirect to("/attractions/#{@attraction.id}")
         end
