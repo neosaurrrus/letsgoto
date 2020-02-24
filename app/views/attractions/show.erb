@@ -1,4 +1,8 @@
+
 <h1> <%= @attraction.name %></h1>
+<% if flash.has?(:show_notice)%>
+  <h4 class="flash-failure"><%= flash[:show_notice] %></h4>
+<% end %>
 <div>
     <h3> <%= @attraction.location %> </h3>
     <% if @attraction.visited %>

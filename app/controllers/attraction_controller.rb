@@ -32,9 +32,12 @@ class AttractionController < ApplicationController
         @attraction = Attraction.find(params[:id])
         if @attraction.user == Helpers.current_user(session)
            erb:"/attractions/edit"
-        else
+        elsif !Helpers.is_logged_in?(session)
             flash[:edit_notice]="You need to log in to edit attractions"
             redirect to("/users/login")
+        else
+            flash[:show_notice]="You are not the owner of this attraction!"
+            redirect to ("/attractions/#{@attraction.id}")
         end
     end
 
